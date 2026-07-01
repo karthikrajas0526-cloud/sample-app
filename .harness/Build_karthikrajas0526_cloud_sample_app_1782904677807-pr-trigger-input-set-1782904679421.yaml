@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_karthikrajas0526_cloud_sample_app_1782904677807-pr-trigger-input-set
+  identifier: Build_karthikrajas0526_cloud_sample_app_1782904677807prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: sampleapp
+  pipeline:
+    identifier: Build_karthikrajas0526_cloud_sample_app_1782904677807
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
