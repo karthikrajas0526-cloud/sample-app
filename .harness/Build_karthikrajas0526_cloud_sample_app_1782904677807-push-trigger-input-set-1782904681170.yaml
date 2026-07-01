@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_karthikrajas0526_cloud_sample_app_1782904677807-push-trigger-input-set
+  identifier: Build_karthikrajas0526_cloud_sample_app_1782904677807pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: sampleapp
+  pipeline:
+    identifier: Build_karthikrajas0526_cloud_sample_app_1782904677807
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
