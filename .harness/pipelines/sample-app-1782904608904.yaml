@@ -1,0 +1,33 @@
+pipeline:
+  name: Build sample-app
+  identifier: Build_karthikrajas0526_cloud_sample_app_1782904677807
+  projectIdentifier: sampleapp
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
+                  spec:
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1782904490317
+        repoName: karthikrajas0526-cloud/sample-app
+        build: <+input>
