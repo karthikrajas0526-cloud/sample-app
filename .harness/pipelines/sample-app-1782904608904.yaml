@@ -17,12 +17,10 @@ pipeline:
                   name: Build and Push
                   identifier: Build_and_Push
                   spec:
+                    connectorRef: artifactorydocker
+                    repo: trialitw4yy.jfrog.io/docker-local-docker-local/sample-app
                     tags:
                       - <+pipeline.sequenceId>
-                    connectorRef: artifactoryconnector
-                    repo: trialitw4yy.jfrog.io/docker-local-docker-local/sample-app
-                    artifactoryRegistryUrl: trialitw4yy.jfrog.io
-                    imageName: docker-local-docker-local/sample-app
                     dockerfile: ./Dockerfile
                     command: echo "Welcome to Harness CI"
           platform:
