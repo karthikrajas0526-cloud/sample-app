@@ -22,7 +22,16 @@ pipeline:
                     tags:
                       - <+pipeline.sequenceId>
                     dockerfile: ./Dockerfile
-                    command: echo "Welcome to Harness CI"
+              - step:
+                  type: Run
+                  name: Trivy Security Scan
+                  identifier: Trivy_Security_Scan
+                  spec:
+                    shell: Sh
+                    command: |
+                      curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+                      trivy image --exit-code 0 --severity HIGH,CRITICAL --no-progress \
+                        trialitw4yy.jfrog.io/docker-local-docker-local/sample-app:<+pipeline.sequenceId>
           platform:
             os: Linux
             arch: Amd64
